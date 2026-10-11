@@ -1,0 +1,884 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Dakyung Lee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one long page, case studies as consistent rows. Each case opens with its decision question in large type,
+   then audience insight, fastest test, change, delight moment. Each case borrows its audience's color. */
+:root {
+  --paper: #F7F6F2;
+  --paper-2: #EEEDEA;
+  --ink: #1A1C1E;
+  --ink-2: #5A5F66;
+  --line: #DFE0DA;
+  --spark: #FFCE2E;
+  --green: #1A8D42;
+  --blue: #2E6CE8;
+  --surf: #EBEBEA;
+  --stage: #0B0C0E;
+  --stage-light: #FFFFFF;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #101214; --paper-2: #191C20; --ink: #F0F1EC; --ink-2: #A8ADB3; --line: #2C3036;
+    --surf: #1E2226; --green: #56D97E; --blue: #85ABFF; --stage: #060708;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.18);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.2);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #101214; --paper-2: #191C20; --ink: #F0F1EC; --ink-2: #A8ADB3; --line: #2C3036;
+  --surf: #1E2226; --green: #56D97E; --blue: #85ABFF; --stage: #060708;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.18);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.2);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.7;
+  padding-inline: clamp(16px, 4vw, 40px); padding-block: 0 3rem;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1120px; margin-inline: auto; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+p { margin: 0; }
+.mono { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* Nav — Apple-style frosted glass */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: color-mix(in srgb, var(--paper) 82%, transparent);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
+  margin-inline: calc(-1 * clamp(16px, 4vw, 40px)); padding-inline: clamp(16px, 4vw, 40px);
+}
+.nav .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.25rem 1.5rem; padding-block: 0.75rem; }
+.brand { font-family: var(--font-display); font-weight: 700; text-decoration: none; font-size: 1.05rem; }
+.brand span { color: var(--ink-2); font-weight: 500; margin-left: 0.5rem; }
+.nav ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; list-style: none; margin: 0; padding: 0; font-size: 0.95rem; }
+.nav ul a { text-decoration: none; display: inline-flex; gap: 0.4rem; align-items: baseline; padding-block: 0.15rem; }
+.nav ul a:hover span:first-child { text-decoration: underline; text-decoration-color: var(--spark); text-decoration-thickness: 0.14em; text-underline-offset: 0.2em; }
+
+/* Hero */
+.hero { padding-block: clamp(3rem, 8vw, 6rem) 3rem; display: grid; gap: 1.75rem; }
+.hero .eyebrow { color: var(--ink-2); }
+.hero h1 { font-size: clamp(3rem, 11vw, 7.5rem); line-height: 0.95; letter-spacing: -0.04em; }
+.hero h1 mark {
+  background: none; color: inherit;
+  text-decoration: underline; text-decoration-color: var(--spark);
+  text-decoration-thickness: 0.14em; text-underline-offset: 0.08em; text-decoration-skip-ink: none;
+}
+.hero .sub { font-family: var(--font-display); font-size: clamp(1.15rem, 2.4vw, 1.6rem); font-weight: 500; color: var(--ink-2); }
+.lede { max-width: 62ch; font-size: clamp(1.05rem, 1.6vw, 1.25rem); line-height: 1.7; }
+.pair { display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; align-items: center; padding-top: 0.5rem; }
+.pair span { border: 1px solid var(--ink); border-radius: 999px; padding: 0.35rem 0.9rem; font-size: 0.95rem; }
+.pair i { font-style: normal; font-family: var(--font-mono); color: var(--ink-2); }
+.meta { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; color: var(--ink-2); font-size: 0.95rem; }
+
+.roles { color: var(--ink); }
+.result { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; align-items: baseline; margin-top: 1.25rem; max-width: 62ch; font-family: var(--font-display); font-weight: 500; font-size: clamp(1.05rem, 1.8vw, 1.3rem); line-height: 1.4; }
+.result .mono { font-family: var(--font-mono); font-weight: 500; color: var(--c); }
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; padding-block: 2rem; border-bottom: 1px solid var(--line); }
+.skills .mono { display: block; color: var(--ink-2); margin-bottom: 0.5rem; }
+.skills p { font-size: 0.95rem; }
+
+/* Proof */
+.proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; padding-block: 2.5rem; border-block: 1px solid var(--line); }
+.proof h2 { font-size: 1.25rem; line-height: 1.3; }
+.proof .mono { color: var(--ink-2); display: block; margin-bottom: 0.6rem; }
+.proof ul { list-style: none; margin: 0.9rem 0 0; padding: 0; display: grid; gap: 0.6rem; font-size: 0.95rem; color: var(--ink-2); line-height: 1.55; }
+.proof li strong { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* Sections */
+section.block { padding-block: clamp(3rem, 7vw, 5rem) 0; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1rem; margin-bottom: 0.5rem; }
+.sec-head h2 { font-size: clamp(2rem, 5vw, 3.25rem); }
+.sec-intro { color: var(--ink-2); max-width: 60ch; margin-bottom: 2.5rem; line-height: 1.65; }
+
+/* Case study */
+.case { --c: var(--ink); padding-block: 3rem 3.5rem; border-top: 1px solid var(--line); display: grid; gap: 2rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; list-style: none; margin: 0; padding: 0; }
+.tags li { border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.65rem; color: var(--ink-2); font-size: 0.82rem; }
+.tags li:first-child { border-color: var(--c); color: var(--c); background: color-mix(in srgb, var(--c) 8%, transparent); }
+.name { font-size: 1rem; font-family: var(--font-mono); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--c); margin-top: 1rem; }
+.q { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; font-size: clamp(1.75rem, 4.2vw, 3rem); max-width: 22ch; text-wrap: balance; margin-top: 0.5rem; }
+.q-label { color: var(--ink-2); margin-top: 0.75rem; display: block; }
+.case-intro { max-width: 62ch; color: var(--ink-2); line-height: 1.7; }
+
+.gallery { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px 16px; }
+.gallery figure { margin: 0; display: flex; flex-direction: column; gap: 0.5rem; min-width: 0; }
+.gallery .frame { border-radius: 16px; overflow: hidden; background: var(--stage); flex: 1; display: flex; box-shadow: var(--shadow-sm); }
+.gallery .frame.light { background: var(--stage-light); }
+.gallery .frame.cream { background: #FEFCF9; }
+.gallery img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.gallery img.contain { object-fit: contain; }
+.gallery figcaption { color: var(--ink-2); font-size: 0.85rem; line-height: 1.45; }
+.s6 { grid-column: span 6; } .s7 { grid-column: span 7; } .s5 { grid-column: span 5; } .s12 { grid-column: span 12; } .s8 { grid-column: span 8; } .s4 { grid-column: span 4; }
+.gallery .tall img { max-height: 520px; }
+.gallery .wide img { max-height: 380px; }
+
+
+/* Markets visual */
+.markets { display: grid; gap: 0.75rem; }
+.mk-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.mk { background: var(--paper-2); border: 1px solid var(--line); border-top: 3px solid var(--c); border-radius: 14px; padding: 1rem 1.1rem 1.1rem; display: grid; gap: 0.5rem; align-content: start; box-shadow: var(--shadow-sm); }
+.mk .mono { color: var(--c); }
+.mk b { font-family: var(--font-display); font-size: 1.15rem; line-height: 1.25; letter-spacing: -0.01em; font-weight: 700; }
+.mk p { font-size: 0.88rem; color: var(--ink-2); line-height: 1.45; }
+.mk .seen { border-top: 1px dashed var(--line); padding-top: 0.5rem; margin-top: 0.15rem; }
+.mk-global { border: 1px dashed var(--c); border-radius: 14px; padding: 0.7rem 1rem; font-size: 0.9rem; color: var(--ink-2); }
+.mk-global .mono { color: var(--c); margin-right: 0.6rem; }
+@media (max-width: 860px) { .mk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .mk-grid { grid-template-columns: 1fr; } }
+
+
+/* Ranking chart */
+.rank { display: grid; gap: 0.6rem; background: var(--paper-2); border: 1px solid var(--line); border-radius: 16px; padding: 1.25rem 1.5rem 1.5rem; box-shadow: var(--shadow-sm); }
+.rank h4 { margin: 0; font-family: var(--font-display); font-size: 1.05rem; letter-spacing: -0.01em; }
+.rank .sub { color: var(--ink-2); font-size: 0.85rem; }
+.rank ol { list-style: none; margin: 0.4rem 0 0; padding: 0; display: grid; gap: 0.45rem; }
+.rank li { display: grid; grid-template-columns: minmax(0, 17rem) minmax(0, 1fr) 3rem; gap: 0.25rem 0.9rem; align-items: center; font-size: 0.9rem; }
+.rank .bar { height: 14px; border-radius: 7px; background: var(--line); position: relative; overflow: hidden; }
+.rank .bar i { position: absolute; inset: 0 auto 0 0; background: var(--c); border-radius: 7px; }
+.rank li.out { color: var(--ink-2); }
+.rank li.out .bar i { background: repeating-linear-gradient(135deg, var(--ink-2) 0 3px, transparent 3px 6px); opacity: 0.55; }
+.rank .val { font-family: var(--font-mono); font-size: 0.8rem; text-align: right; font-variant-numeric: tabular-nums; }
+.rank .cut { display: flex; align-items: center; gap: 0.6rem; color: var(--ink-2); margin: 0.2rem 0; }
+.rank .cut::before, .rank .cut::after { content: ""; flex: 1; border-top: 1px dashed var(--ink-2); }
+@media (max-width: 640px) { .rank li { grid-template-columns: minmax(0, 1fr) 3rem; } .rank li .bar { grid-column: 1 / -1; grid-row: 2; } .rank li .val { grid-row: 1; grid-column: 2; } }
+
+
+/* Resume list */
+.cv { list-style: none; margin: 0 0 2.5rem; padding: 0; border-top: 1px solid var(--line); }
+.cv > li { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: 0.4rem 2rem; padding-block: 1.2rem; border-bottom: 1px solid var(--line); }
+.cv .when { color: var(--ink-2); padding-top: 0.25rem; }
+.cv h3 { font-size: 1.15rem; letter-spacing: -0.01em; line-height: 1.3; }
+.cv h3 span { font-family: var(--font-body); font-weight: 500; color: var(--ink-2); font-size: 0.95rem; letter-spacing: 0; margin-left: 0.4rem; }
+.cv ul { margin: 0.55rem 0 0; padding-left: 1.1rem; display: grid; gap: 0.5rem; max-width: 68ch; font-size: 0.97rem; line-height: 1.6; }
+.cv li li { padding: 0; border: 0; display: list-item; }
+@media (max-width: 640px) { .cv > li { grid-template-columns: 1fr; } }
+
+.beats { margin: 0; display: grid; border-top: 1px solid var(--line); }
+.beats > div { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: 0.5rem 2.5rem; padding-block: 1.35rem; border-bottom: 1px solid var(--line); }
+.beats dt { color: var(--ink-2); padding-top: 0.25rem; font-size: 0.82rem; }
+.beats dd { margin: 0; max-width: 68ch; display: grid; gap: 0.75rem; }
+.beats dd p { line-height: 1.7; }
+.beats dd strong { font-weight: 600; }
+
+.stats { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 1.25rem 3rem; }
+.stats li { display: grid; gap: 0.2rem; }
+.stats b { font-family: var(--font-display); font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1; letter-spacing: -0.03em; color: var(--c); font-variant-numeric: tabular-nums; }
+.stats span { color: var(--ink-2); font-size: 0.9rem; }
+
+/* Compact cards */
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; border-top: 1px solid var(--line); padding-top: 2.5rem; }
+.card { display: grid; gap: 1rem; align-content: start; }
+.card .q { font-size: clamp(1.4rem, 2.6vw, 1.9rem); max-width: 24ch; margin-top: 0; }
+.card p { max-width: 56ch; }
+.card .stats b { font-size: 2.25rem; color: var(--ink); }
+.card .stats { gap: 0.75rem 2rem; }
+
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2rem 4rem; }
+.headshot { grid-column: 1 / -1; max-width: 260px; }
+.headshot img { width: 100%; height: auto; border-radius: 1.25rem; display: block; box-shadow: var(--shadow-md); }
+.about .copy { display: grid; gap: 1.25rem; max-width: 62ch; }
+.about .copy p:first-child { font-family: var(--font-display); font-size: clamp(1.3rem, 2.4vw, 1.75rem); line-height: 1.3; font-weight: 500; letter-spacing: -0.01em; }
+.contact { margin-top: 1.5rem; display: grid; gap: 0.6rem; }
+.contact .row { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; }
+.contact code { font-family: var(--font-mono); font-size: 0.95rem; user-select: all; }
+.btn { font: inherit; font-size: 0.85rem; border: 1px solid var(--ink); background: transparent; color: var(--ink); padding: 0.3rem 0.9rem; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.btn:hover { background: var(--spark); color: #1A1C1E; border-color: var(--spark); }
+.note { color: var(--ink-2); font-size: 0.9rem; }
+
+.flow { background: var(--surf); border-radius: 1.25rem; padding: 1.75rem; margin: 2.25rem 0 0; }
+.flow h4 { font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--c, var(--ink-2)); margin: 0 0 1.1rem; }
+.flow-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.85rem; counter-reset: step; }
+.flow-step { counter-increment: step; padding: 1.15rem 1.15rem 1rem; background: var(--paper); border-radius: 0.75rem; border-top: 3px solid var(--c, var(--ink-2)); display: grid; gap: 0.3rem; align-content: start; box-shadow: var(--shadow-sm); }
+.flow-step::before { content: counter(step, decimal-leading-zero); font-family: var(--font-mono); font-size: 0.75rem; color: var(--c, var(--ink-2)); }
+.flow-step b { font-size: 0.95rem; line-height: 1.3; display: block; }
+.flow-step span { font-size: 0.88rem; color: var(--ink-2); line-height: 1.5; display: block; }
+.flow-step em { font-style: normal; font-family: var(--font-mono); font-size: 0.8rem; color: var(--c, var(--ink-2)); margin-top: 0.35rem; display: block; line-height: 1.45; }
+.voices { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1.25rem; }
+.voice { position: relative; padding: 1.75rem; border-radius: 1rem; background: var(--surf); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 0.85rem; box-shadow: var(--shadow-sm); }
+.voice blockquote { margin: 0; font-size: 1rem; line-height: 1.65; color: var(--ink); font-style: italic; }
+.voice cite { font-style: normal; font-size: 0.88rem; color: var(--ink-2); display: block; margin-top: auto; padding-top: 0.6rem; }
+.voice cite strong { color: var(--ink); font-weight: 600; font-style: normal; }
+@media (max-width: 860px) { .voices { grid-template-columns: 1fr; } .flow-steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .flow-steps { grid-template-columns: 1fr; } }
+footer { margin-top: 5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; color: var(--ink-2); }
+
+@media (max-width: 860px) {
+  .proof, .skills { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: 1fr; }
+  .about { grid-template-columns: 1fr; }
+  .s6, .s7, .s5, .s8, .s4 { grid-column: span 12; }
+  .gallery .tall img, .gallery .wide img { max-height: 420px; }
+}
+@media (max-width: 640px) {
+  .beats > div { grid-template-columns: 1fr; gap: 0.25rem; }
+}
+
+/* Cleanup layer */
+.gallery .frame { align-items: center; }
+.case { border-top: 2px solid var(--c); }
+.index { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; padding-block: 0.5rem 2.5rem; }
+.tile { display: grid; gap: 0.6rem; align-content: start; text-decoration: none; color: inherit; }
+.tile .thumb { aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: var(--stage); border: 1px solid var(--line); box-shadow: var(--shadow-md); }
+.tile .thumb.cream { background: #FEFCF9; }
+.tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+.tile:hover img, .tile:focus-visible img { transform: scale(1.04); }
+.tile .mono { color: var(--c); }
+.tile h3 { font-size: 1.3rem; line-height: 1.2; letter-spacing: -0.02em; }
+.tile p { color: var(--ink-2); font-size: 0.92rem; }
+.tile:hover h3 { text-decoration: underline; text-decoration-color: var(--spark); text-decoration-thickness: 0.12em; text-underline-offset: 0.2em; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; margin: 0.6rem 0 0; padding: 0; }
+.chips li { border: 1px solid var(--line); border-radius: 999px; padding: 0.15rem 0.7rem; font-size: 0.88rem; background: var(--paper-2); }
+.skills { padding-block: 1.75rem; }
+.facts { display: grid; gap: 0.9rem; align-content: start; margin: 0; }
+.facts div { display: grid; gap: 0.15rem; border-top: 1px solid var(--line); padding-top: 0.7rem; }
+.facts dt { color: var(--ink-2); }
+.facts dd { margin: 0; font-size: 0.97rem; }
+.nav ul a.on span:first-child { text-decoration: underline; text-decoration-color: var(--spark); text-decoration-thickness: 0.14em; text-underline-offset: 0.2em; }
+.card { border: 1px solid var(--line); border-radius: 20px; padding: 1.75rem; background: var(--paper-2); display: flex; flex-direction: column; gap: 1.1rem; box-shadow: var(--shadow-sm); }
+.card .stats { padding-top: 0.25rem; }
+.cards { border-top: 0; padding-top: 2rem; }
+.contact { margin-top: 0.5rem; }
+.contact-in { display: grid; gap: 0.6rem; }
+@media (max-width: 860px) { .index { grid-template-columns: 1fr; } .tile .thumb { aspect-ratio: 16 / 10; } }
+
+@media (max-width: 640px) {
+  .gallery .scroll .frame { overflow-x: auto; align-items: flex-start; -webkit-overflow-scrolling: touch; }
+  .gallery .scroll img { flex: none; width: 760px; max-width: none; height: auto; max-height: none; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Journey map */
+.jgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.85rem}
+.jcard{padding:1.15rem;background:var(--paper);border-radius:.75rem;border-top:3px solid var(--c);display:grid;gap:.4rem;align-content:start;box-shadow:var(--shadow-sm);position:relative}
+.jcard .jl{font-family:var(--font-mono);font-size:.72rem;color:var(--c);text-transform:uppercase;letter-spacing:.06em}
+.jcard b{font-size:.92rem;line-height:1.3;display:block}
+.jcard .jq{font-size:.84rem;color:var(--ink-2);border-left:2px solid var(--c);padding-left:.6rem;font-style:italic;margin:.15rem 0}
+.jcard>p:last-child{font-size:.85rem;color:var(--ink-2);line-height:1.5}
+.jarrow{display:none}
+@media(min-width:861px){.jarrow{display:flex;align-items:center;color:var(--c);font-size:1.3rem;font-family:var(--font-mono)}.jgrid{grid-template-columns:1fr auto 1fr auto 1fr}}
+
+/* Quiz phones */
+.qpair{display:grid;grid-template-columns:repeat(2,minmax(160px,220px));gap:1.5rem;justify-content:center}
+.qphone{background:var(--paper-2);border:2px solid var(--line);border-radius:24px;padding:1.2rem 1rem;display:grid;gap:.55rem;box-shadow:var(--shadow-md)}
+.qphone::before{content:"";width:40px;height:5px;background:var(--line);border-radius:3px;justify-self:center}
+.qphone .qn{font-family:var(--font-mono);font-size:.7rem;color:var(--c);background:color-mix(in srgb,var(--c) 10%,transparent);border-radius:999px;justify-self:start;padding:.12rem .55rem}
+.qphone .qq{font-size:.85rem;font-weight:600;line-height:1.35}
+.qphone .qcenter{text-align:center;padding:.4rem 0;color:var(--ink-2);font-size:.88rem;line-height:1.5}
+.qphone .qopts{display:grid;gap:.3rem}
+.qphone .qopt{border:1.5px solid var(--line);border-radius:999px;padding:.38rem .7rem;font-size:.78rem;text-align:center}
+
+/* Room cards */
+.rrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.rcard{background:var(--stage);border-radius:1rem;padding:1.5rem 1rem 1.25rem;display:grid;gap:.7rem;justify-items:center;text-align:center;box-shadow:var(--shadow-sm)}
+.rcard .rn{font-family:var(--font-mono);font-size:.72rem;color:var(--ink);background:var(--paper);border-radius:.4rem;padding:.2rem .6rem;letter-spacing:.04em}
+.rcard svg{width:56px;height:56px}
+.rcard p{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.4}
+@media(max-width:640px){.jgrid{grid-template-columns:1fr}.qpair{grid-template-columns:minmax(0,220px)}}
+@media(max-width:480px){.rrow{grid-template-columns:1fr}}
+</style>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">Dakyung Lee</a>
+    <ul>
+      <li><a href="#work"><span>Work</span></a></li>
+      <li><a href="#project"><span>Project</span></a></li>
+      <li><a href="#about"><span>About</span></a></li>
+      <li><a href="#resume"><span>Resume</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+  <header class="hero">
+    <p class="eyebrow mono">Hello, I'm Dakyung</p>
+    <h1>Delight, <mark>decoded.</mark></h1>
+    <p class="sub">Audience insight for urban experiences.</p>
+    <p class="roles mono">Product management · Product marketing · Consumer and urban products</p>
+    <p class="lede">I work in product management and product marketing, and I explore urban experiences, from booths and apps to housing. I analyze audiences and large-scale customer feedback, answer the decision a team is stuck on, and launch a small version first so real behavior can teach us what to change.</p>
+    <div class="pair" aria-label="The two questions I start every project with">
+      <span>What makes people delighted here?</span><i>→</i><span>How can this brand or product make it happen?</span>
+    </div>
+    <p class="meta"><span>Seattle</span><span>MS Human Centered Design &amp; Engineering, University of Washington</span><span>Previously Google Android Marketing, Seoul</span></p>
+  </header>
+
+  <section class="index" aria-label="Selected work">
+    <a class="tile" href="#gstar" style="--c: var(--green)"><div class="thumb"><img src="images/gstar-booth-topdown.png" alt="G-STAR 2024 booth top-down view" loading="lazy"></div><span class="mono">Space &middot; Google</span><h3>Android at G-STAR</h3><p>+17pp purchase intent, 2&times; visitors</p></a>
+    <a class="tile" href="#merch" style="--c: var(--green)"><div class="thumb"><img src="images/lsfm-merch-set.jpg" alt="Android × LE SSERAFIM merchandise set" loading="lazy"></div><span class="mono">Product &middot; Google</span><h3>Android &times; LE SSERAFIM</h3><p>4.58M+ engagements, #1 Galaxy on Coupang</p></a>
+    <a class="tile" href="#sarabome" style="--c: var(--blue)"><div class="thumb cream"><div style="width:100%;height:100%;background:#FEFCF9;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;gap:.6rem">
+<div style="width:140px;background:#fff;border:1.5px solid #E8E6E0;border-radius:16px;padding:.8rem .7rem;box-shadow:0 2px 8px rgba(0,0,0,.06);display:grid;gap:.45rem">
+<div style="display:flex;align-items:center;gap:.35rem"><div style="width:8px;height:8px;background:var(--blue);border-radius:2px"></div><span style="font-size:.55rem;font-weight:600;color:#1A1C1E;font-family:var(--font-display)">SARABOME</span></div>
+<div style="height:1px;background:#F0EFE8"></div>
+<div style="display:grid;gap:.25rem">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:.48rem;color:#5A5F66">Review score</span><div style="display:flex;gap:1px"><span style="font-size:.5rem;color:var(--spark)">★★★★</span><span style="font-size:.5rem;color:#DFE0DA">★</span></div></div>
+<div style="display:flex;gap:.2rem"><div style="flex:3;height:4px;background:var(--blue);border-radius:2px"></div><div style="flex:1;height:4px;background:#E8E6E0;border-radius:2px"></div></div>
+</div>
+<div style="display:grid;gap:.2rem">
+<div style="display:flex;gap:.25rem"><div style="width:6px;height:6px;background:#EF4444;border-radius:1px;flex-shrink:0;margin-top:1px"></div><span style="font-size:.42rem;color:#5A5F66">Pests: 2 in 6 mo</span></div>
+<div style="display:flex;gap:.25rem"><div style="width:6px;height:6px;background:var(--green);border-radius:1px;flex-shrink:0;margin-top:1px"></div><span style="font-size:.42rem;color:#5A5F66">Noise: Quiet</span></div>
+</div>
+</div>
+<span style="font-family:var(--font-mono);font-size:.55rem;color:var(--blue);letter-spacing:.06em;text-transform:uppercase">Student housing reviews</span>
+</div></div><span class="mono">Service &middot; Personal project</span><h3>SARABOME</h3><p>3.6&times; core engagement, built solo</p></a>
+  </section>
+
+  <section class="proof" aria-label="What I bring">
+    <div>
+      <span class="mono">Large-scale voice of customer</span>
+      <h2>I read the crowd before I plan for it.</h2>
+      <ul>
+        <li><strong>4,646</strong> community posts analyzed with a custom Python crawler to plan a gaming booth</li>
+        <li><strong>4.58M+</strong> engagements on a K-pop collaboration, <strong>98%</strong> positive, partner&rsquo;s first-ever <strong>#1</strong> Galaxy ranking</li>
+        <li>Gen Z user research that shaped local campaigns and influenced Global&rsquo;s research categories</li>
+      </ul>
+    </div>
+    <div>
+      <span class="mono">Zero to one, in ambiguity</span>
+      <h2>I ship the smallest version that can teach me something.</h2>
+      <ul>
+        <li><strong>Himedi:</strong> urgent bookings from 11% to 25%</li>
+        <li><strong>Android Korea:</strong> +17pp purchase intent, small team</li>
+        <li><strong>SARABOME:</strong> built solo, then 3.6× core engagement</li>
+      </ul>
+    </div>
+    <div>
+      <span class="mono">Detail and speed</span>
+      <h2>Fast does not mean loose.</h2>
+      <ul>
+        <li>One week for booth research, with GIF simulations in place of builds</li>
+        <li>20+ plush samples tested for quality and brand fit across two agencies</li>
+        <li>40+ AI use cases vetted for campaigns, catching product misconceptions</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="skills" aria-label="Skills and tools">
+    <div>
+      <span class="mono">Research and analytics</span>
+      <ul class="chips"><li>Customer research</li><li>Social listening</li><li>Market analysis</li><li>Behavioral analysis</li><li>Funnel analysis</li><li>Performance analysis</li></ul>
+    </div>
+    <div>
+      <span class="mono">Product marketing</span>
+      <ul class="chips"><li>Go-to-market</li><li>Positioning</li><li>Campaign strategy</li><li>Localization</li><li>Sales enablement</li><li>Cross-functional coordination</li></ul>
+    </div>
+    <div>
+      <span class="mono">Tools</span>
+      <ul class="chips"><li>SQL</li><li>Python</li><li>Excel</li><li>Google Analytics</li><li>Firebase</li><li>Flutter</li><li>Figma</li><li>AI-assisted development</li></ul>
+    </div>
+  </section>
+
+  <section class="block" id="work">
+    <div class="sec-head"><h2>Work</h2></div>
+    <p class="sec-intro">Professional projects. Each one opens with the decision the team had to make.</p>
+
+    <article class="case" style="--c: var(--green)" id="gstar">
+      <header>
+        <ul class="tags mono"><li>Space</li><li>Google Android Marketing</li><li>Associate Product Marketing Manager</li><li>2024</li></ul>
+        <h3 class="name">Android at G-STAR</h3>
+        <span class="q-label mono">Decision question</span>
+        <p class="q">Which Android AI use cases should a booth show, and why would a gamer choose it over the biggest game brands?</p>
+        <p class="result"><span class="mono">Result</span> +17pp purchase intent among non-Android users (OKR target was +13pp), and 2&times; visitors year over year.</p>
+      </header>
+
+      <div class="gallery">
+        <figure class="s7"><div class="frame"><img src="images/gstar-booth-topdown.png" alt="G-STAR booth top-down isometric view showing Gift Zone, Google Play, and Gemini areas" class="contain" loading="lazy"></div><figcaption>The booth plan, built around the use cases gamers ranked highest.</figcaption></figure>
+        <figure class="s5"><div class="frame"><img src="images/gstar-booth-interior.png" alt="G-STAR booth interior render showing Gemini zone" class="contain" loading="lazy"></div><figcaption>Interior view: the Gemini persona zone with phones for hands-on trials.</figcaption></figure>
+        <figure class="s12">
+          <div class="flow" style="margin:0">
+            <h4>Visitor behavior loop</h4>
+            <div class="jgrid">
+              <div class="jcard">
+                <span class="jl">Before</span>
+                <b>Route by reward value</b>
+                <p class="jq">&ldquo;Any generous booth recs?&rdquo;</p>
+                <p>Gamers scan community posts the night before, ranking booths by the rewards they give out and the queue speed others reported.</p>
+              </div>
+              <span class="jarrow" aria-hidden="true">→</span>
+              <div class="jcard">
+                <span class="jl">During</span>
+                <b>Reroute by queue speed</b>
+                <p class="jq">&ldquo;How&rsquo;s the queue right now?&rdquo;</p>
+                <p>On site, visitors check real-time queue posts and redesign their route on the fly, skipping booths with long waits.</p>
+              </div>
+              <span class="jarrow" aria-hidden="true">→</span>
+              <div class="jcard">
+                <span class="jl">After</span>
+                <b>Share → feed the next wave</b>
+                <p class="jq">&ldquo;Day 2 loot list&rdquo;</p>
+                <p>After the visit, gamers post reviews and loot lists that become the planning data for tomorrow's visitors.</p>
+              </div>
+            </div>
+          </div>
+          <figcaption>The visitor behavior loop I mapped from community data: route by rewards, adjust by queue speed, share reviews that shape the next visitors' plans.</figcaption>
+        </figure>
+        <figure class="s12 rank" style="--c: var(--green)">
+          <h4>What gamers ranked</h4>
+          <p class="sub">Priority score out of 5 = 0.6 &times; likelihood of use + 0.4 &times; brand consideration. Only use cases that cleared the baseline on both metrics went into the booth.</p>
+          <ol>
+            <li><span>Search items shown in gaming content</span><span class="bar"><i style="width: 95.6%"></i></span><span class="val">4.78</span></li>
+            <li><span>Translate Japanese webtoons</span><span class="bar"><i style="width: 85.6%"></i></span><span class="val">4.28</span></li>
+            <li><span>Translate foreign gaming memes on X</span><span class="bar"><i style="width: 68.8%"></i></span><span class="val">3.44</span></li>
+            <li><span>Search the name of a new mobile game</span><span class="bar"><i style="width: 67.2%"></i></span><span class="val">3.36</span></li>
+            <li><span>Search an image of a game character</span><span class="bar"><i style="width: 65.2%"></i></span><span class="val">3.26</span></li>
+          </ol>
+          <p class="cut mono">below baseline, left out</p>
+          <ol>
+            <li class="out"><span>Sound-search a game&rsquo;s background music</span><span class="bar"><i style="width: 40%"></i></span><span class="val">2.00</span></li>
+            <li class="out"><span>Search snacks to have while playing</span><span class="bar"><i style="width: 36.8%"></i></span><span class="val">1.84</span></li>
+            <li class="out"><span>Search for game items while playing</span><span class="bar"><i style="width: 34.8%"></i></span><span class="val">1.74</span></li>
+          </ol>
+        </figure>
+        <figure class="s7 wide"><div class="frame"><img src="images/gstar-booth-wide.jpg" alt="G-STAR booth wide view showing Google Play Pass and Gemini zones" loading="lazy"></div><figcaption>The gamified booth: play a Circle to Search speed game, make your gaming persona with Gemini, then collect a Google Play Points reward.</figcaption></figure>
+        <figure class="s5 wide"><div class="frame light"><div style="width:100%;min-height:200px;background:#FEFCF9;border-radius:12px;padding:1.25rem;display:grid;gap:.8rem">
+<div style="display:flex;align-items:center;gap:.5rem">
+<svg viewBox="0 0 20 20" width="16" height="16"><rect x="2" y="2" width="16" height="16" rx="3" fill="#1A8D42"/><circle cx="7" cy="10" r="2" fill="#fff"/><circle cx="13" cy="10" r="2" fill="#fff"/></svg>
+<span style="font-family:var(--font-mono);font-size:.65rem;color:var(--ink-2);letter-spacing:.06em">ANDROID &middot; ONLINE MINI-SITE</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+<div style="background:#fff;border:1px solid #E8E6E0;border-radius:10px;padding:.7rem;display:grid;gap:.35rem;box-shadow:0 1px 3px rgba(0,0,0,.04)">
+<div style="width:24px;height:24px;background:#4285F4;border-radius:50%;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 14 14" width="10" height="10"><circle cx="7" cy="7" r="4" fill="none" stroke="#fff" stroke-width="1.5"/><line x1="10" y1="10" x2="13" y2="13" stroke="#fff" stroke-width="1.5"/></svg></div>
+<span style="font-size:.7rem;font-weight:600;color:#1A1C1E;line-height:1.2">Circle to Search</span>
+<span style="font-size:.6rem;color:#5A5F66;line-height:1.3">Play online &amp; earn Points</span>
+</div>
+<div style="background:#fff;border:1px solid #E8E6E0;border-radius:10px;padding:.7rem;display:grid;gap:.35rem;box-shadow:0 1px 3px rgba(0,0,0,.04)">
+<div style="width:24px;height:24px;background:#8B5CF6;border-radius:50%;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 14 14" width="10" height="10"><path d="M7 1L8.5 5.5L13 7L8.5 8.5L7 13L5.5 8.5L1 7L5.5 5.5Z" fill="#fff"/></svg></div>
+<span style="font-size:.7rem;font-weight:600;color:#1A1C1E;line-height:1.2">Gemini</span>
+<span style="font-size:.6rem;color:#5A5F66;line-height:1.3">Create your persona</span>
+</div>
+<div style="background:#fff;border:1px solid #E8E6E0;border-radius:10px;padding:.7rem;display:grid;gap:.35rem;box-shadow:0 1px 3px rgba(0,0,0,.04)">
+<div style="width:24px;height:24px;background:#1A8D42;border-radius:50%;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 14 14" width="10" height="10"><path d="M7 1L9 5H13L10 8L11 12L7 10L3 12L4 8L1 5H5Z" fill="#fff"/></svg></div>
+<span style="font-size:.7rem;font-weight:600;color:#1A1C1E;line-height:1.2">Play Pass</span>
+<span style="font-size:.6rem;color:#5A5F66;line-height:1.3">Free trial for visitors</span>
+</div>
+</div>
+</div></div><figcaption>The online mini-site mirrored the booth for people who could not be there.</figcaption></figure>
+        <figure class="s12"><div class="frame" style="background:#000;padding:2rem;display:flex;justify-content:center"><img src="images/gstar-game-phone.jpg" alt="Circle to Search speed game on phone with 500 Points reward card" style="max-height:400px;width:auto;border-radius:12px" loading="lazy"></div><figcaption>The speed game in action: identify a keyboard brand from a gaming video, find the source of a community quote — the top-ranked use cases from research.</figcaption></figure>
+      </div>
+
+      <div class="flow">
+        <h4>How the booth was built</h4>
+        <div class="flow-steps">
+          <div class="flow-step"><b>Listen</b><span>Python crawler on 4,646 prior-year community posts, classified across five keyword categories. Plus a 75-person survey.</span><em>&ldquo;Queue&rdquo; topped at 358 mentions. 53% come for real rewards; they plan routes by queue speed.</em></div>
+          <div class="flow-step"><b>Test with GIF simulations</b><span>10 non-Android gamers shown AI features as GIFs, not live builds. One week of research.</span><em>70%+ wanted Circle to Search for content around games, not during gameplay.</em></div>
+          <div class="flow-step"><b>Score and cut</b><span>Priority = 0.6 &times; likelihood of use + 0.4 &times; brand consideration. Cases below the baseline on either metric were dropped.</span><em>5 use cases kept, 3 cut.</em></div>
+          <div class="flow-step"><b>Design around the data</b><span>Top cases front-loaded so every visitor sees them. Speed game turns the #1 use case into play. Google Play Points as headline reward. Layouts simulated for queue speed.</span><em>+17pp purchase intent (target: +13pp), 2&times; visitors YoY.</em></div>
+        </div>
+      </div>
+
+      <dl class="beats">
+        <div><dt class="mono">Audience insight</dt><dd>
+          <p>I interviewed <strong>10 heavy mobile gamers</strong> (non-Android users, 18 to 35) in person and showed Android AI features as GIF simulations. The team expected demand for Circle to Search during gameplay. That was wrong. Over 70% wanted it to find items in gaming content, and over 50% wanted it to translate Japanese webtoons. Gamers wanted help across everything they watch and read around games.</p>
+          <p>To learn why people visit at all, I wrote a Python crawler to analyze <strong>4,646 posts</strong> from the <em>prior year&rsquo;s</em> G-STAR board on the largest gamer community. I designed a five-category keyword taxonomy&mdash;rewards, visit motivation, booth experience, brand mentions and negative reactions&mdash;and ran automated classification across every post. <strong>&ldquo;queue&rdquo;</strong> dominated at 358 mentions: visitors planned their routes by queue speed and reward value. Only 0.7% of posts were negative. I also ran a 75-person survey in the same community. That community skews toward heavy fans, so I read the numbers as direction, not as the share of all visitors. 53% came mainly for real rewards.</p>
+        </dd></div>
+        <div><dt class="mono">Fastest test</dt><dd>
+          <p>I had one week for research, so I picked the quickest method for each question. GIF simulations stood in for real builds, and an automated crawler I wrote stood in for on-site observation&mdash;I analyzed the prior year&rsquo;s community data instead of waiting for live posts. A use case had to clear a baseline on both purchase-consideration uplift and relevance to make the final list.</p>
+        </dd></div>
+        <div><dt class="mono">What changed</dt><dd>
+          <p>I dropped the in-game demo and built the booth around the top-ranked use cases, shown early so every visitor met them. Google Play Points became the headline reward, because gamers value them like cash. I coordinated the agency to design the booth structure and contents, shifting to goal-oriented communication when I saw they needed clearer briefs. With the design team I simulated layouts to speed up turnover. The OKR target was +13pp consideration uplift&mdash;the booth delivered +17pp.</p>
+        </dd></div>
+        <div><dt class="mono">Delight moment</dt><dd>
+          <p>A three-player Circle to Search speed game. Players solve real gamer problems with the feature, then win rewards that scale with their rank. Gamers got competition and a payoff, and learned Android AI along the way.</p>
+        </dd></div>
+        <div><dt class="mono">Online extension</dt><dd>
+          <p>Not everyone could get to the venue, so I also built a mini-site for Google Play Points Platinum and Diamond members who could not visit G-STAR (Nov 14 to 17). Members hunted for hidden treasure-map pieces in a video, entered them to complete a map, and could win Play Points, gaming gear, a Play Pass subscription or an on-site gift. The mini-site reached more users than the offline booth, but it lifted brand consideration less. The trade-off was reach online against depth in person.</p>
+        </dd></div>
+        <div><dt class="mono">What I would do next</dt><dd>
+          <p>The social listening came from one community, the sample was small, and watching a GIF is not the same as using the phone. I would pilot the ranking on real devices to cross-check it.</p>
+        </dd></div>
+      </dl>
+
+      <ul class="stats">
+        <li><b>+17pp</b><span>purchase intent among non-Android users</span></li>
+        <li><b>2×</b><span>visitors year over year</span></li>
+      </ul>
+    </article>
+
+    <article class="case" style="--c: var(--green)" id="merch">
+      <header>
+        <ul class="tags mono"><li>Product</li><li>Google Android Marketing</li><li>Associate Product Marketing Manager</li><li>Jan to May 2025</li></ul>
+        <h3 class="name">Android × LE SSERAFIM</h3>
+        <span class="q-label mono">Decision question</span>
+        <p class="q">Android had a K-pop fandom's attention. How does a tech brand earn their love?</p>
+        <p class="result"><span class="mono">Result</span> 4.58M+ engagements at 98% positive sentiment. Coupang&rsquo;s first-ever #1 Galaxy pre-sales ranking. Launched in 4 markets.</p>
+      </header>
+
+      <div class="gallery">
+        <figure class="s4"><div class="frame" style="background:#000"><img src="images/lsfm-bot-closeup.jpg" alt="Android bot plush keychain close-up" class="contain" loading="lazy"></div><figcaption>The Android bot, tested over 20 samples.</figcaption></figure>
+        <figure class="s8"><div class="frame" style="background:#000"><img src="images/lsfm-merch-set.jpg" alt="Complete Android × LE SSERAFIM merchandise kit flat lay" class="contain" loading="lazy"></div><figcaption>The full set: slow-open box, artist-designed charms and stickers, and the mascot.</figcaption></figure>
+        <figure class="s12 wide"><div class="frame cream" style="padding:1.5rem"><img src="images/lsfm-overview.jpg" alt="LE SSERAFIM brand merchandise overview with bot plush and campaign stats" loading="lazy"></div><figcaption>Overview: the Android × LE SSERAFIM merchandise line with plush bot concept and engagement targets.</figcaption></figure>
+        <figure class="s5"><div class="frame cream"><img src="images/lsfm-packaging.jpg" alt="Bot plush packaging design with butterfly charm and LE SSERAFIM logos" loading="lazy"></div><figcaption>Packaging design: LE SSERAFIM comes first, Android shows through a window at the mascot.</figcaption></figure>
+        <figure class="s7"><div class="frame cream"><img src="images/lsfm-keychains-row.jpg" alt="All 5 member bot plushie keychains in a row" loading="lazy"></div><figcaption>All five artists, one base bot: each member's design personality in a 10cm keychain.</figcaption></figure>
+        <figure class="s7 wide"><div class="frame"><img src="images/lsfm-bots-full.jpg" alt="All 5 LE SSERAFIM member bot plushies" loading="lazy"></div><figcaption>Prototypes before the final: two packaging mock-ups, plush samples, and one bot design for each of the five artists.</figcaption></figure>
+        <figure class="s5 wide"><div class="frame cream"><img src="images/lsfm-design-stories.jpg" alt="Character design stories with Circle to Search inspiration" loading="lazy"></div><figcaption>The final unboxing flow: a slow-opening drawer, then customization with artist-designed accessories.</figcaption></figure>
+        <figure class="s12 wide"><div class="frame cream"><img src="images/lsfm-flatlay.png" alt="Full merchandise set flat lay with all items" loading="lazy"></div><figcaption>The social buzz: Google Japan, the artists' own account, Android global, a fashion magazine, and Coupang Live in Korea.</figcaption></figure>
+        <figure class="s12 markets" style="--c: var(--green)">
+          <div class="mk-grid" role="list">
+            <div class="mk" role="listitem"><span class="mono">Korea</span><b>Coupang Live giveaway</b><p>Tied to the Galaxy S25 Edge pre-order. 500 buyers during the live drawn to win the keyring.</p><p class="seen mono">Posts seen: May 2025</p></div>
+            <div class="mk" role="listitem"><span class="mono">Japan</span><b>Giveaway on Google Japan</b><p>A giveaway campaign on Google Japan&rsquo;s Instagram and X, with winners contacted by DM.</p><p class="seen mono">Posts seen: Jun 2025</p></div>
+            <div class="mk" role="listitem"><span class="mono">Brazil</span><b>Vivo store event, S&atilde;o Paulo</b><p>An in-store event at Shopping Eldorado with music and giveaways.</p><p class="seen mono">Posts seen: Jun 2025</p></div>
+            <div class="mk" role="listitem"><span class="mono">Indonesia</span><b>Google AI experience at Erafone</b><p>Fans tried Gemini and Circle to Search in store, then picked up the plush.</p><p class="seen mono">Posts seen: May 2025 to early 2026</p></div>
+          </div>
+          <div class="mk-global"><span class="mono">Global</span>Android&rsquo;s global Instagram used the plush as the first visual in its second-collaboration teaser.</div>
+          <figcaption>One bot, four markets, four partners and mechanics. Every market chose to take part.</figcaption>
+        </figure>
+        <figure class="s12 wide" style="margin-top:1rem"><div class="frame cream" style="padding:1.5rem;display:flex;justify-content:center"><img src="images/lsfm-brazil-poster.jpg" alt="Brazil launch promo poster for Android × LE SSERAFIM with Vivo partnership" style="max-height:420px;width:auto;border-radius:12px" loading="lazy"></div><figcaption>Brazil: Vivo partnership event poster at Shopping Eldorado, São Paulo.</figcaption></figure>
+      </div>
+
+      <div class="flow">
+        <h4>How the product took shape</h4>
+        <div class="flow-steps">
+          <div class="flow-step"><b>Listen</b><span>Social listening + pop-up, concert, and collab caf&eacute; case studies.</span><em>78% of organic buzz came from the artists&rsquo; own mentions. Fans reach for artist logo + sleek look.</em></div>
+          <div class="flow-step"><b>Model three options</b><span>Five fully custom bots vs. one base bot + five artist accessories vs. one generic bot. Costed each for production, labor, and engagement.</span><em>Middle option: &minus;80% cost vs. full custom, higher projected engagement than simplest.</em></div>
+          <div class="flow-step"><b>Flip the hierarchy</b><span>First packaging led with Android branding. Fan feedback was lukewarm. Reversed: LE&nbsp;SSERAFIM comes first, Android shows through a window at the mascot.</span><em>Two &ldquo;behind the design&rdquo; artist interviews drew 32K views with no paid boosting.</em></div>
+          <div class="flow-step"><b>Scale market by market</b><span>Pitched each market separately. Joining was voluntary, so each market had to be persuaded by the case, not by mandate.</span><em>4 markets, each with its own partner and mechanic.</em></div>
+        </div>
+      </div>
+
+      
+      <div class="gallery" style="margin-top:1.5rem">
+        <figure class="s6"><div class="frame cream"><img src="images/lsfm-research.jpg" alt="User research methodology" loading="lazy"></div><figcaption>User research: social listening and pop-up case studies shaped the product strategy.</figcaption></figure>
+        <figure class="s6"><div class="frame cream"><img src="images/lsfm-strategy.jpg" alt="Design strategy" loading="lazy"></div><figcaption>Design strategy: from fan insight to product decisions.</figcaption></figure>
+      </div>
+
+      <dl class="beats">
+        <div><dt class="mono">Audience insight</dt><dd>
+          <p>Social listening showed that the artists&rsquo; own mentions drove <strong>78%</strong> of organic buzz around Android. Case studies at pop-ups, a concert and a collaboration caf&eacute; showed fans reaching for items that clearly carried the artist&rsquo;s logo and a sleek look. This insight drove the decision to flip the branding hierarchy and design a product fans would carry proudly.</p>
+        </dd></div>
+        <div><dt class="mono">Fastest test</dt><dd>
+          <p>Prototypes from v0 to v2, each reviewed in turn by users and experts, the brand team and the artist team. More than 20 plush samples were tested for quality and brand fit, and artist-design options were simulated to balance production cost, labor and customization.</p>
+        </dd></div>
+        <div><dt class="mono">What changed</dt><dd>
+          <p>Fan feedback on the first packaging, which led with Android branding, was lukewarm. I flipped the hierarchy so LE SSERAFIM comes first and Android shows through a window at the mascot. Five fully custom bots were too costly, so I modeled three options and chose one base bot with five artist-designed accessories, which cut production cost by about 80% against full customization and still beat the simplest option on projected engagement.</p>
+          <p>Fans&rsquo; favorite design elements went into the mascot and the packaging. During a countryside retreat in Hwaseong, the artists used Circle to Search to explore what they saw&mdash;wildflowers, butterflies, pumpkins, rural homes&mdash;and those became the sticker designs. The technology was woven into the creative story fans already wanted to tell.</p>
+        </dd></div>
+        <div><dt class="mono">Delight moment</dt><dd>
+          <p>A slow-opening, multi-layered unboxing that builds anticipation, and a mascot fans customize with accessories the artists designed. I led two &ldquo;behind the design&rdquo; artist interviews that drew 32K views with no paid boosting, showing how the artists used Circle to Search during their retreat to find design inspiration.</p>
+          <p>Fans carried it further on their own. On the fan board of the artists&rsquo; community app, members posted photos of the bot the day it appeared, one fan made a UFO charm from the keyring, and a fan&rsquo;s X post about the collab drew 340 likes and 76 reposts.</p>
+        </dd></div>
+        <div><dt class="mono">Launch and markets</dt><dd>
+          <p>I led the project end to end&mdash;from overall strategy and merch development through agency coordination (HEAZ and HAPE) to global scaling&mdash;as main project manager. We launched in Korea first, where our partner Coupang used the kit as a Galaxy S25 Edge pre-order incentive and achieved its <strong>first-ever #1 ranking in Galaxy pre-sales</strong>. We then scaled to Japan, Brazil and Indonesia, each with its own partner and timing, as the map above shows.</p>
+          <p>I also led two &ldquo;behind the design&rdquo; artist interviews (32K views, no paid boosting) and guided authentic posts from the artists&rsquo; own accounts to shape the social campaign. The green Android bot appeared in the artists&rsquo; &ldquo;Come Over&rdquo; music video in March 2025, and the total campaign drove <strong>4.58M+ engagements at 98% positive sentiment</strong>.</p>
+          <p>Joining was voluntary in every market, so I had to make the case to global Android marketing, the head of global Platforms &amp; Ecosystems marketing and the brand team, and each market that took part had been persuaded. The plush later became the first main visual in the teaser for Android&rsquo;s second LE SSERAFIM collaboration on Android&rsquo;s global Instagram (<a href="https://www.instagram.com/reel/DYfbVU5h5hk/" target="_blank" rel="noopener">watch the reel</a>), and the artists featured the keyring in a joint post with Android that passed 100K likes.</p>
+        </dd></div>
+      </dl>
+
+      <ul class="stats">
+        <li><b>4.58M+</b><span>total engagements</span></li>
+        <li><b>98%</b><span>positive sentiment</span></li>
+        <li><b>#1</b><span>Galaxy pre-sales on Coupang (first ever)</span></li>
+        <li><b>4</b><span>markets launched</span></li>
+      </ul>
+    </article>
+
+    <div class="cards">
+      <article class="card" style="--c: var(--ink)">
+        <ul class="tags mono"><li>Strategy</li><li>Google Android Marketing</li><li>2024 to 2025</li></ul>
+        <h3 class="name">AI product strategy, Korea</h3>
+        <p class="q">Where do people&rsquo;s views of Android AI differ from what it does, and which use cases should lead?</p>
+        <p>I analyzed awareness&ndash;perception gaps across 13+ AI features (e.g., Gemini Overlay at only 57% awareness) and checked the findings against behavioral data. I also vetted 40+ Gemini and Circle to Search use cases for agency campaigns, catching product misconceptions and ensuring Gen Z relevance. The research shaped KR&rsquo;s creative priorities and influenced Global&rsquo;s research categories.</p>
+        <ul class="stats"><li><b>13+</b><span>AI features analyzed</span></li><li><b>40+</b><span>use cases vetted for campaigns</span></li></ul>
+      </article>
+      <article class="card" style="--c: var(--ink)">
+        <ul class="tags mono"><li>Service</li><li>Himedi</li><li>Product Operations Manager</li><li>2026</li></ul>
+        <h3 class="name">Himedi</h3>
+        <p class="q">Case study in progress. The results so far:</p>
+        <ul class="stats">
+          <li><b>11% → 25%</b><span>urgent booking rate after a cross-border booking system</span></li>
+          <li><b>−55%</b><span>P95 user wait time after redesigning service workflows</span></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="project">
+    <div class="sec-head"><h2>Project</h2></div>
+    <p class="sec-intro">Things I started myself.</p>
+
+    <article class="case" style="--c: var(--blue)" id="sarabome">
+      <header>
+        <ul class="tags mono"><li>Service</li><li>Personal project</li><li>Flutter · Firebase</li></ul>
+        <h3 class="name">SARABOME</h3>
+        <span class="q-label mono">Decision question</span>
+        <p class="q">Only 9% of registered students shared a review. Why, and what would change it?</p>
+        <p class="result"><span class="mono">Result</span> 3.6× core feature engagement and 200+ initial users, built solo in 4 months.</p>
+      </header>
+      <p class="case-intro">I built SARABOME, a review platform where Korea University students share the real condition of off-campus rooms&mdash;pests, noise, leaks, natural lighting, delivery access&mdash;in a structured Q&amp;A format tied to each address. I started it after two rental contracts where the problems only showed up once I had moved in.</p>
+
+      <div class="gallery">
+        <figure class="s12">
+          <div class="rrow">
+            <div class="rcard">
+              <span class="rn">Room 105</span>
+              <svg viewBox="0 0 56 56" fill="none" aria-hidden="true"><path d="M27 8L17 28h8L19 48l20-24h-9z" fill="#FFCE2E" opacity=".85"/></svg>
+              <p>Faulty wiring</p>
+            </div>
+            <div class="rcard">
+              <span class="rn">Room 106</span>
+              <svg viewBox="0 0 56 56" fill="none" aria-hidden="true"><rect x="16" y="18" width="16" height="20" rx="3" fill="#A8ADB3" opacity=".7"/><path d="M36 24c3 0 5 2 5 5s-2 5-5 5" stroke="#A8ADB3" stroke-width="2" fill="none" opacity=".5"/><path d="M40 20c5 0 8 4 8 8s-3 8-8 8" stroke="#A8ADB3" stroke-width="2" fill="none" opacity=".3"/></svg>
+              <p>Noise at night</p>
+            </div>
+            <div class="rcard">
+              <span class="rn">Room 107</span>
+              <svg viewBox="0 0 56 56" fill="none" aria-hidden="true"><ellipse cx="28" cy="30" rx="9" ry="7" fill="#A8ADB3" opacity=".6"/><ellipse cx="28" cy="24" rx="6" ry="5" fill="#A8ADB3" opacity=".7"/><line x1="20" y1="26" x2="12" y2="20" stroke="#A8ADB3" stroke-width="1.5" opacity=".5"/><line x1="36" y1="26" x2="44" y2="20" stroke="#A8ADB3" stroke-width="1.5" opacity=".5"/><line x1="18" y1="32" x2="10" y2="36" stroke="#A8ADB3" stroke-width="1.5" opacity=".5"/><line x1="38" y1="32" x2="46" y2="36" stroke="#A8ADB3" stroke-width="1.5" opacity=".5"/><line x1="22" y1="37" x2="16" y2="44" stroke="#A8ADB3" stroke-width="1.5" opacity=".5"/><line x1="34" y1="37" x2="40" y2="44" stroke="#A8ADB3" stroke-width="1.5" opacity=".5"/></svg>
+              <p>Pests at the door</p>
+            </div>
+          </div>
+          <figcaption>The problems only show up once you move in. Illustrated for the SARABOME pitch.</figcaption>
+        </figure>
+        <figure class="s4"><div class="frame light" style="padding:1rem;background:#FAFAF8"><img src="images/sarabome-review-detail.png" alt="SARABOME review detail page showing pest, noise, and leak data" class="contain" style="border-radius:12px" loading="lazy"></div><figcaption>The review form: pests, leaks and noise, visible to verified students only.</figcaption></figure>
+        <figure class="s4"><div class="frame cream" style="padding:1rem;background:#FEFCF9"><img src="images/sarabome-reviews-list.png" alt="SARABOME building reviews list" class="contain" style="border-radius:12px" loading="lazy"></div><figcaption>Reading reviews: pest counts, noise sources and a note from the last tenant.</figcaption></figure>
+        <figure class="s4"><div class="frame light"><div style="width:100%;height:100%;min-height:400px;background:#FAFAF8;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem">
+<div style="width:180px;background:#fff;border:2px solid #E8E6E0;border-radius:24px;padding:1rem .8rem;display:grid;gap:.45rem;box-shadow:0 4px 16px rgba(0,0,0,.08)">
+<div style="width:40px;height:4px;background:#E8E6E0;border-radius:3px;justify-self:center"></div>
+<div style="font-size:.55rem;font-weight:700;color:#1A1C1E;font-family:var(--font-display)">Near Campus · Verified</div>
+<div style="display:flex;gap:1px"><span style="font-size:.48rem;color:var(--spark)">★★★★</span><span style="font-size:.48rem;color:#E8E6E0">★</span></div>
+<div style="height:1px;background:#F0EFE8"></div>
+<!-- Q&A fields -->
+<div style="display:grid;gap:.3rem">
+<div style="display:grid;gap:.12rem">
+<span style="font-size:.42rem;color:#A8ADB3;font-weight:500">Recycling & delivery</span>
+<span style="font-size:.45rem;color:#1A1C1E;line-height:1.3">Recycling bins nearby, delivery box at entrance</span>
+</div>
+<div style="display:grid;gap:.12rem">
+<span style="font-size:.42rem;color:#A8ADB3;font-weight:500">Natural lighting</span>
+<span style="font-size:.45rem;color:#16A34A;font-weight:600">Good ✓</span>
+</div>
+<div style="display:grid;gap:.12rem">
+<span style="font-size:.42rem;color:#A8ADB3;font-weight:500">Bugs (6 months)</span>
+<span style="font-size:.45rem;color:#DC2626">3 times</span>
+</div>
+<div style="display:grid;gap:.12rem">
+<span style="font-size:.42rem;color:#A8ADB3;font-weight:500">Noise</span>
+<div style="display:flex;gap:2px"><span style="font-size:.38rem;padding:.08rem .25rem;background:#FEF3C7;border-radius:3px;color:#D97706">Doors</span><span style="font-size:.38rem;padding:.08rem .25rem;background:#FEF3C7;border-radius:3px;color:#D97706">Hallway</span></div>
+</div>
+<div style="display:grid;gap:.12rem">
+<span style="font-size:.42rem;color:#A8ADB3;font-weight:500">Leaks</span>
+<span style="font-size:.45rem;color:#16A34A;font-weight:600">None ✓</span>
+</div>
+</div>
+<div style="background:var(--blue);color:#fff;border-radius:999px;padding:.28rem;text-align:center;font-size:.45rem;font-weight:600;margin-top:.1rem">Share mine too</div>
+</div>
+</div></div><figcaption>A live review: structured Q&amp;A for an address near campus, with a &ldquo;나도 공유&rdquo; (share mine) button.</figcaption></figure>
+        <figure class="s5"><div class="frame" style="background:#F7F7F7;padding:1rem;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center;justify-items:center"><img src="images/sarabome-login.png" alt="SARABOME login screen" class="contain" style="border-radius:12px;max-height:320px" loading="lazy"><img src="images/sarabome-signup.png" alt="SARABOME sign-up screen" class="contain" style="border-radius:12px;max-height:320px" loading="lazy"></div><figcaption>Sign-up starts with school verification, which keeps landlords out.</figcaption></figure>
+        <figure class="s7 wide scroll"><div class="frame cream"><div style="width:100%;min-height:200px;background:#FEFCF9;border-radius:12px;padding:1.25rem;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<!-- Flow 1: Domain validation -->
+<div style="display:grid;gap:.5rem;align-content:start">
+<span style="font-family:var(--font-mono);font-size:.6rem;color:var(--blue);letter-spacing:.06em">DOMAIN VALIDATION</span>
+<div style="display:grid;gap:6px">
+<div style="background:var(--blue);color:#fff;border-radius:6px;padding:.35rem .5rem;font-size:.55rem;text-align:center;font-weight:500">Enter email</div>
+<div style="text-align:center;color:var(--ink-2);font-size:.7rem">↓</div>
+<div style="background:#fff;border:1px solid #E8E6E0;border-radius:6px;padding:.35rem .5rem;font-size:.55rem;text-align:center;display:grid;gap:.15rem">
+<span style="font-weight:500">Check domain</span>
+<span style="font-size:.42rem;color:#5A5F66">*.ac.kr / *.edu</span>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+<div style="text-align:center;display:grid;gap:3px">
+<div style="color:var(--ink-2);font-size:.55rem">↓ ✓</div>
+<div style="background:#DCFCE7;border:1px solid #86EFAC;border-radius:6px;padding:.25rem;font-size:.48rem;text-align:center;color:#16A34A;font-weight:500">Verified</div>
+</div>
+<div style="text-align:center;display:grid;gap:3px">
+<div style="color:var(--ink-2);font-size:.55rem">↓ ✗</div>
+<div style="background:#FEE2E2;border:1px solid #FCA5A5;border-radius:6px;padding:.25rem;font-size:.48rem;text-align:center;color:#DC2626;font-weight:500">Rejected</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Flow 2: Review unlock -->
+<div style="display:grid;gap:.5rem;align-content:start">
+<span style="font-family:var(--font-mono);font-size:.6rem;color:var(--blue);letter-spacing:.06em">REVIEW UNLOCK</span>
+<div style="display:grid;gap:6px">
+<div style="background:var(--blue);color:#fff;border-radius:6px;padding:.35rem .5rem;font-size:.55rem;text-align:center;font-weight:500">New user</div>
+<div style="text-align:center;color:var(--ink-2);font-size:.7rem">↓</div>
+<div style="background:#FEF3C7;border:1px solid #FDE68A;border-radius:6px;padding:.35rem .5rem;font-size:.55rem;text-align:center;display:grid;gap:.15rem">
+<span style="font-weight:500;color:#92400E">Limited view</span>
+<span style="font-size:.42rem;color:#A16207">Summaries only</span>
+</div>
+<div style="text-align:center;color:var(--ink-2);font-size:.7rem">↓ Submit review</div>
+<div style="background:#DCFCE7;border:1px solid #86EFAC;border-radius:6px;padding:.35rem .5rem;font-size:.55rem;text-align:center;display:grid;gap:.15rem">
+<span style="font-weight:500;color:#16A34A">Full access</span>
+<span style="font-size:.42rem;color:#15803D">All reviews unlocked</span>
+</div>
+</div>
+</div>
+</div></div><figcaption>The two changes as flows: domain validation at sign-up, and full reviews unlocked only after you contribute your own.</figcaption></figure>
+      </div>
+
+      <div class="flow">
+        <h4>How the problem was traced</h4>
+        <div class="flow-steps">
+          <div class="flow-step"><b>Ship and observe</b><span>Built the MVP around 3 criteria renters care about: pests, noise, leaks. Launched to Korea University students.</span><em>200+ registered, but only 9% shared a review.</em></div>
+          <div class="flow-step"><b>Find the drop-off</b><span>Firebase funnel analysis showed where users stopped.</span><em>80% never clicked &ldquo;Share Review.&rdquo; Half who clicked quit before submitting.</em></div>
+          <div class="flow-step"><b>Diagnose why</b><span>Interviews with non-sharers + a call with a housing-review CEO.</span><em>Two blockers: &ldquo;I came only to read&rdquo; + &ldquo;the landlord might see it.&rdquo;</em></div>
+          <div class="flow-step"><b>Fix the system</b><span>Student email verification locks landlords out. Reciprocal unlock: full reviews visible only after you share yours.</span><em>3.6&times; core feature engagement.</em></div>
+        </div>
+      </div>
+
+      <dl class="beats">
+        <div><dt class="mono">Audience insight</dt><dd>
+          <p>Interviews and house-hunting observation showed that first-time renters did not know what to check, and that experienced renters kept coming back to pests, noise and leaks. Once the MVP was live, funnel data showed <strong>80%</strong> of visitors never clicked Share Review, and half of those who did quit before submitting.</p>
+          <p>Interviews with non-sharers found two blockers: they had come only to read, and some feared the landlord would see their review. A call with the CEO of a general housing review site confirmed that landlords were pressing platforms to delete reviews.</p>
+        </dd></div>
+        <div><dt class="mono">Fastest test</dt><dd>
+          <p>I shipped a working MVP first, built around the three criteria students cared about. Real usage then showed where the problem was, and I traced it with Google Analytics, interviews and the expert call.</p>
+        </dd></div>
+        <div><dt class="mono">What changed</dt><dd>
+          <p>Two changes to the system itself. Sign-up now needs a verified student email address, which keeps landlords out. Full reviews unlock only after you share your own, so reading and contributing are no longer separate.</p>
+        </dd></div>
+        <div><dt class="mono">Delight moment</dt><dd>
+          <p>Relief. A student sees what the last tenant lived through before signing, and feels safe enough to leave the same for the next one.</p>
+        </dd></div>
+        <div><dt class="mono">What I would do next</dt><dd>
+          <p>I shipped both changes together to move fast, so I could not tell which one did the work. I would test them separately, and look for a reason to come back outside moving season.</p>
+        </dd></div>
+      </dl>
+
+      <ul class="stats">
+        <li><b>3.6×</b><span>core feature engagement</span></li>
+        <li><b>200+</b><span>initial users</span></li>
+        <li><b>4 mo</b><span>to build</span></li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="block" id="about">
+    <div class="sec-head"><h2>About</h2></div>
+    <div class="about">
+      <div class="headshot"><img src="images/headshot.jpg" alt="Dakyung Lee" loading="lazy"></div>
+      <dl class="facts">
+        <div><dt class="mono">Based in</dt><dd>Seattle</dd></div>
+        <div><dt class="mono">Studying</dt><dd>MS Human Centered Design &amp; Engineering, University of Washington</dd></div>
+        <div><dt class="mono">Previously</dt><dd>Google Android Marketing, Seoul</dd></div>
+        <div><dt class="mono">Languages</dt><dd>Korean (native), English (fluent), Spanish (intermediate)</dd></div>
+        <div><dt class="mono">Looking for</dt><dd>Product management and product marketing roles in consumer and urban products</dd></div>
+      </dl>
+      <div class="copy">
+        <p>Hello, I'm Dakyung. I explore urban experiences and ask two questions: what makes people delighted here, and how can this brand or product make it happen?</p>
+        <p>I answer them with audience insight, including large-scale voice-of-customer data, and then I launch fast and learn. That is how I worked through ambiguity at a startup, on a three-person team at Google Android, and on SARABOME, a housing platform I built from zero.</p>
+        <p>I have lived in six cities, and I learned early that people are often shut out by how things are built. A school with ramps and elevators made me an equal peer. A school without them left me on the outside. I notice who an experience leaves out, and what makes someone feel they belong.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="voices">
+    <div class="sec-head"><h2>From my team</h2></div>
+    <div class="voices">
+      <div class="voice">
+        <blockquote>&ldquo;Your vibrant energy and first-hand Gen&nbsp;Z insights were invaluable to the Android marketing team, leaving a significant impact on our projects, from campus pop-ups to meme campaigns.&rdquo;</blockquote>
+        <cite><strong>Raymond Yang</strong> &middot; Android Marketing</cite>
+      </div>
+      <div class="voice">
+        <blockquote>&ldquo;From the campus pop-up to G-STAR and the LE&nbsp;SSERAFIM keyrings, you always treated every project like your own&mdash;thinking it through, then thinking again. Your insight, energy, and speed made you essential to the team.&rdquo;</blockquote>
+        <cite><strong>Minhee</strong> &middot; Android Marketing</cite>
+      </div>
+      <div class="voice">
+        <blockquote>&ldquo;Commending you on your dedication, commitment and resilience through bot international shipping&mdash;with the amazing ability to somehow make it all happen with a smile.&rdquo;</blockquote>
+        <cite><strong>Zes</strong> &middot; APAC Android Marketing</cite>
+      </div>
+      <div class="voice">
+        <blockquote>&ldquo;Having the chance to collaborate with Dakyung was great fortune for me. I believe she&rsquo;ll shine brightly wherever she goes.&rdquo;</blockquote>
+        <cite><strong>KyoonJae Lee</strong> &middot; Head of Performance Specialist, Google</cite>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="resume">
+    <div class="sec-head"><h2>Resume</h2></div>
+    <ol class="cv">
+      <li><div class="when mono">Jun 2026 to Sep 2026</div><div><h3>Product Operations Manager <span>Himedi</span></h3><ul>
+        <li>Increased urgent booking rate from 11% to 25% by launching a cross-border booking system, partnering with Design to test and iterate on the workflow, and analyzing order and appointment data before and after launch.</li>
+        <li>Cut P95 user wait time by 55% by redesigning service workflows around customer needs and operational efficiency, translating requirements into AI-enabled automation, and iterating based on usability feedback.</li>
+      </ul></div></li>
+      <li><div class="when mono">Apr 2024 to Oct 2025</div><div><h3>Associate Product Marketing Manager <span>Google, Android Marketing</span></h3><ul>
+        <li>Shaped AI product strategy for Korea by analyzing awareness&ndash;perception gaps across 13+ AI features, vetting 40+ Gemini and Circle to Search use cases for campaigns, and producing Gen Z research that influenced Global&rsquo;s research categories.</li>
+        <li>Exceeded the OKR target (+13pp) by lifting purchase intent among non-users by 17 percentage points through user research, behavioral analysis, and a gamified AI booth experience at G-STAR, doubling visitors year over year.</li>
+        <li>Drove 98% positive sentiment across 4.58M engagements by leading a Gen Z K-pop merchandise campaign end to end&mdash;from product strategy and design agency coordination to social activation&mdash;contributing to the partner&rsquo;s first-ever #1 Galaxy pre-sales ranking.</li>
+        <li>Launched the campaign across 4 markets (Korea, Japan, Brazil, Indonesia) by developing multi-regional go-to-market and localization strategies, coordinating deliverables and timelines, and securing stakeholder buy-in.</li>
+      </ul></div></li>
+      <li><div class="when mono">Jun 2023 to Apr 2024</div><div><h3>SARABOME <span>Personal project, student housing review platform</span></h3><ul>
+        <li>Increased core feature engagement 3.6&times; by analyzing Firebase engagement and funnel data alongside user feedback, then testing student-verification and review-flow redesigns.</li>
+        <li>Managed the full product lifecycle from MVP definition to launch, conducting customer research, building with Flutter and Firebase, and integrating an AI-powered review system and commute accessibility logic.</li>
+      </ul></div></li>
+      <li><div class="when mono">Dec 2022 to Jun 2023</div><div><h3>Product Performance Intern <span>Google, Gaming &amp; Apps Product</span></h3><ul>
+        <li>Developed an audience re-engagement playbook for 83+ account managers by identifying LTV drop-off points through funnel analysis and translating findings into product narratives and customer use cases.</li>
+        <li>Enabled beta adoption across 6 large enterprises by synthesizing pilot findings and sales feedback to refine localization strategy and equip sales teams with playbooks and training.</li>
+      </ul></div></li>
+      <li><div class="when mono">Education</div><div><h3>M.S. Human Centered Design &amp; Engineering <span>University of Washington, Seattle &middot; Sep 2026 to Jun 2028</span></h3><ul>
+        <li>Research group: Smart Home Technology for Older Adults.</li></ul>
+        <h3 style="margin-top:1rem">B.A. Spanish &amp; International Relations <span>Korea University, Seoul &middot; Mar 2019 to Feb 2025 &middot; GPA 4.11/4.5</span></h3></div></li>
+    </ol>
+    <div class="contact">
+      <div class="contact-in">
+        <p>Want the PDF version? Write to me and I will send it.</p>
+        <div class="row"><code id="email">dakyungl@uw.edu</code><button class="btn" id="copy" type="button">Copy email</button></div>
+        <div class="row"><a href="https://www.linkedin.com/in/dakyung2" target="_blank" rel="noopener">linkedin.com/in/dakyung2</a></div>
+        <p class="note" id="copied" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="mono">v3.0 · let&rsquo;s try it first, now iterating</span>
+    <span class="mono">Designed and built in Seattle · Oct 2026</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy');
+  var out = document.getElementById('copied');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var text = document.getElementById('email').textContent;
+    function fallback() {
+      try {
+        var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        out.textContent = 'Selected. Press copy on your keyboard.';
+      } catch (e) { out.textContent = ''; }
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () { out.textContent = 'Copied.'; }, fallback);
+    } catch (e) { fallback(); }
+  });
+})();
+
+// Highlight the current section in the nav
+(function () {
+  try {
+    var links = {};
+    document.querySelectorAll('.nav ul a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+    var secs = ['work', 'project', 'about', 'resume'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) {
+          Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+          if (links[e.target.id]) links[e.target.id].classList.add('on');
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    secs.forEach(function (s) { io.observe(s); });
+  } catch (e) {}
+})();
+</script>
+
+</body></html>
